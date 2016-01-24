@@ -5,7 +5,7 @@ from gluon import current
 class OrderError(Exception):
     pass
 
-class Cart(Object):
+class Cart(object):
     '''
     A web2py module to store orders in the session.
     The orders are stored in the session.cart as a dict.
