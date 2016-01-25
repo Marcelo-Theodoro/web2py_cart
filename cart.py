@@ -108,6 +108,5 @@ class Cart(object):
         '''
         if self.__contains__(product):
             return amount_requested + int(self.AmountProductOrder(product)) <= amount_available
-        return amount <= self.AMOUNT_AVAILABLE
-
+        return amount_requested <= amount_available
 
