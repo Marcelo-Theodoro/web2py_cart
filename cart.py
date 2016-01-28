@@ -110,3 +110,9 @@ class Cart(object):
             return amount_requested + int(self.AmountProductOrder(product)) <= amount_available
         return amount_requested <= amount_available
 
+    def CleanCart(self):
+        '''
+        Remove all the order from the cart.
+        '''
+        current.session.cart = {}
+
