@@ -20,11 +20,16 @@ class Cart(object):
         self._components = [self.cart[n] for n in self.cart]
         self._products = [self.cart[n][0] for n in self.cart]
 
+        # Amount of products in the cart
+        self.products_amount = len(self)
+
     def __repr__(self):
         return ', '.join([str(self.cart[n]) for n in self.cart])
 
     def __iter__(self):
-        return iter(self._components)
+        for i in self._components:
+            dict = {'id': i[0], 'amount': i[1]}
+            yield dict
 
     def __getitem__(self, index):
         return self._components[index]
@@ -110,7 +115,7 @@ class Cart(object):
             return amount_requested + int(self.AmountProductOrder(product)) <= amount_available
         return amount_requested <= amount_available
 
-    def CleanCart(self):
+    def ClearCart(self):
         '''
         Remove all the order from the cart.
         '''
